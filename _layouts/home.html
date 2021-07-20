@@ -1,0 +1,68 @@
+---
+layout: default
+
+---
+
+{%- if site.posts.size > 0 -%}
+  {%- for post in site.posts -%}
+    {% capture day_posted %}{{ post.date | date: "%Y-%m-%d" }}{% endcapture %}
+    <div class="entry">
+      <div class="entry__meta">
+        <img loading="lazy" class="entry__image" src="https://filedn.eu/lwI1LDSpBGNhFdgdym0FqY7/i/t/2021-06-28/orlik-nad-vltavou.jpg" alt="Image" />
+        <div class="entry__attributes">
+          <div class="entry__date">{{day_posted}}</div>
+          <img loading="lazy" class="entry__attribute" title="Mood" src="/assets/ui/{{post.mood}}.svg" alt="{{post.mood}}" />
+          <img loading="lazy" class="entry__attribute" title="Weather" src="/assets/ui/{{post.weather}}.svg" alt="{{post.weather}}" />
+          <img loading="lazy" class="entry__attribute" title="Activity" src="/assets/ui/{{post.activity}}.svg" alt="{{post.activity}}" />
+          <img loading="lazy" class="entry__attribute" title="Type of Location" src="/assets/ui/{{post.type}}.svg" alt="{{post.type}}" />
+        </div>
+        <div class="entry__stats">
+          <div class="entry__stat"><img loading="lazy" class="entry__stat-image" src="/assets/ui/s.svg" alt="Steps" /><span class="entry__stat-value">{{post.steps}}</span></div>
+          <div class="entry__stat"><img loading="lazy" class="entry__stat-image" src="/assets/ui/a.svg" alt="Active Zone Minutes" /><span class="entry__stat-value">{{post.azm}}</span></div>
+          <div class="entry__stat"><img loading="lazy" class="entry__stat-image" src="/assets/ui/d.svg" alt="Distance" /><span class="entry__stat-value">{{post.distance}}</span></div>
+          <div class="entry__stat"><img loading="lazy" class="entry__stat-image" src="/assets/ui/f.svg" alt="Floors" /><span class="entry__stat-value">{{post.floors}}</span></div>
+        </div>
+      </div>
+
+      <div class="entry__text">
+        <div class="entry__title">{{post.title}}</div>
+        <div class="entry__content">
+          {{post.content}}
+        </div>
+      </div>
+    </div>
+
+    {%- if post.gallery -%}
+      <div class="gallery entry">
+      {%- for row in post.gallery -%}
+        {%- case row.images-in-row -%}
+          {% when 2 %}
+            <div class="gallery__row gallery__row--two">
+              {%- for image in row.images -%}
+                <img loading="lazy" class="gallery__image" src="{{image.src}}" alt="{{image.alt}}" />
+              {%- endfor -%}
+            </div>
+          {% when 3 %}
+              <div class="gallery__row gallery__row--three">
+                {%- for image in row.images -%}
+                  <img loading="lazy" class="gallery__image" src="{{image.src}}" alt="{{image.alt}}" />
+                {%- endfor -%}
+              </div>
+          {% when 4 %}
+            <div class="gallery__row gallery__row--four">
+              {%- for image in row.images -%}
+                <img loading="lazy" class="gallery__image" src="{{image.src}}" alt="{{image.alt}}" />
+              {%- endfor -%}
+            </div>
+          {% when 5 %}
+            <div class="gallery__row gallery__row--five">
+              {%- for image in row.images -%}
+              <img loading="lazy" class="gallery__image" src="{{image.src}}" alt="{{image.alt}}" />
+              {%- endfor -%}
+            </div>
+        {%- endcase -%}
+      {%- endfor -%}
+      </div>
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
