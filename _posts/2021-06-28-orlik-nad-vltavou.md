@@ -3,8 +3,8 @@ title: Orlík
 date: 2021-06-28 19:10:00 +0200
 
 view:
-  src: https://filedn.eu/lwI1LDSpBGNhFdgdym0FqY7/i/t/2021-06-28/orlik-nad-vltavou.jpg
-  alt: Chateau Orlík in Orlík nad Vltavou and its resident peacock
+  src: https://filedn.eu/lwI1LDSpBGNhFdgdym0FqY7/i/t/2021-06-28/orlik-wall.jpg
+  alt: One of Orlík's side walls
 
 mood: happy
 weather: clear-sky
@@ -20,12 +20,13 @@ gps: 49.512941, 14.170348
 
 gallery:
   - images:
-    - src: https://filedn.eu/lwI1LDSpBGNhFdgdym0FqY7/i/t/2021-06-28/orlik-wall.jpg
-      alt: One of Orlík's side walls
     - src: https://filedn.eu/lwI1LDSpBGNhFdgdym0FqY7/i/t/2021-06-28/orlik-sky.jpg
       alt: The sky around Orlík
     - src: https://filedn.eu/lwI1LDSpBGNhFdgdym0FqY7/i/t/2021-06-28/orlik-landscape.jpg
       alt: Landscape around Orlík
+    - src: https://filedn.eu/lwI1LDSpBGNhFdgdym0FqY7/i/t/2021-06-28/orlik-nad-vltavou.jpg
+      alt: Chateau Orlík in Orlík nad Vltavou and its resident peacock
+
 
 published: true
 ---

@@ -20,14 +20,14 @@ gps: 48.998129, 13.659191
 
 gallery:
   - images:
-    - src: https://filedn.eu/lwI1LDSpBGNhFdgdym0FqY7/i/t/2021-06-30/chalupska-slat.jpg
-      alt: Sign about the peat bog
-    - src: https://filedn.eu/lwI1LDSpBGNhFdgdym0FqY7/i/t/2021-06-30/chalupska-slat-chodnicek.jpg
-      alt: The wooden walkway leading to the peat bog
     - src: https://filedn.eu/lwI1LDSpBGNhFdgdym0FqY7/i/t/2021-06-30/chalupska-slat-raselina.jpg
       alt: The peaty landscape with a triangular hill and a sign about local mining of peat
     - src: https://filedn.eu/lwI1LDSpBGNhFdgdym0FqY7/i/t/2021-06-30/chalupska-slat-mala.jpg
       alt: The tree in the middle of the peat bog
+    - src: https://filedn.eu/lwI1LDSpBGNhFdgdym0FqY7/i/t/2021-06-30/chalupska-slat-chodnicek.jpg
+      alt: The wooden walkway leading to the peat bog
+    - src: https://filedn.eu/lwI1LDSpBGNhFdgdym0FqY7/i/t/2021-06-30/chalupska-slat.jpg
+      alt: Sign about the peat bog
       
 published: true
 ---

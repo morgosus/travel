@@ -20,10 +20,10 @@ gps: 49.235134, 13.527121
 
 gallery:
   - images:
-    - src: https://filedn.eu/lwI1LDSpBGNhFdgdym0FqY7/i/t/2021-07-02/andel-strazny-dvere.jpg
-      alt: One of the entrances
     - src: https://filedn.eu/lwI1LDSpBGNhFdgdym0FqY7/i/t/2021-07-02/andel-strazny-kriz.jpg
       alt: A cross next to the chapel
+    - src: https://filedn.eu/lwI1LDSpBGNhFdgdym0FqY7/i/t/2021-07-02/andel-strazny-dvere.jpg
+      alt: One of the entrances
     - src: https://filedn.eu/lwI1LDSpBGNhFdgdym0FqY7/i/t/2021-07-02/andel-strazny-susice.jpg
       alt: The view of the town of Sušice from Andělíček's hill
 
