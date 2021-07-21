@@ -16,7 +16,7 @@ azm: 87
 distance: 7.86 km
 floors: 30
 
-gps: 49°30′39″ s. š., 14°9′53″ v. d.
+gps: 49.040040, 13.504473
 
 gallery:
   - images:
