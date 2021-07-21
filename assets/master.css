@@ -243,6 +243,7 @@ body {
 .footer {
   text-align: center;
   margin-bottom: 18px;
+  text-transform: uppercase;
 }
 
 @media (max-width: 960px) {
