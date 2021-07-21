@@ -1,1 +1,1 @@
-All images © 2021 Martin Toms
+All images © 2021 Martin Toms, All Rights Reserved
