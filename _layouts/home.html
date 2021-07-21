@@ -8,19 +8,19 @@ layout: default
     {% capture day_posted %}{{ post.date | date: "%Y-%m-%d" }}{% endcapture %}
     <div class="entry">
       <div class="entry__meta">
-        <img loading="lazy" class="entry__image" src="https://filedn.eu/lwI1LDSpBGNhFdgdym0FqY7/i/t/2021-06-28/orlik-nad-vltavou.jpg" alt="Image" />
+        <img loading="lazy" class="entry__image" src="{{post.view.src}}" alt="{{post.view.alt}}" title="{{post.view.alt}}" />
         <div class="entry__attributes">
-          <div class="entry__date">{{day_posted}}</div>
+          <time class="entry__date" title="timestamp" datetime="{{day_posted}}">{{day_posted}}</time>
           <img loading="lazy" class="entry__attribute" title="Mood" src="/assets/ui/{{post.mood}}.svg" alt="{{post.mood}}" />
           <img loading="lazy" class="entry__attribute" title="Weather" src="/assets/ui/{{post.weather}}.svg" alt="{{post.weather}}" />
           <img loading="lazy" class="entry__attribute" title="Activity" src="/assets/ui/{{post.activity}}.svg" alt="{{post.activity}}" />
           <img loading="lazy" class="entry__attribute" title="Type of Location" src="/assets/ui/{{post.type}}.svg" alt="{{post.type}}" />
         </div>
         <div class="entry__stats">
-          <div class="entry__stat"><img loading="lazy" class="entry__stat-image" src="/assets/ui/s.svg" alt="Steps" /><span class="entry__stat-value">{{post.steps}}</span></div>
-          <div class="entry__stat"><img loading="lazy" class="entry__stat-image" src="/assets/ui/a.svg" alt="Active Zone Minutes" /><span class="entry__stat-value">{{post.azm}}</span></div>
-          <div class="entry__stat"><img loading="lazy" class="entry__stat-image" src="/assets/ui/d.svg" alt="Distance" /><span class="entry__stat-value">{{post.distance}}</span></div>
-          <div class="entry__stat"><img loading="lazy" class="entry__stat-image" src="/assets/ui/f.svg" alt="Floors" /><span class="entry__stat-value">{{post.floors}}</span></div>
+          <div class="entry__stat" title="Steps taken on that date"><img loading="lazy" class="entry__stat-image" src="/assets/ui/s.svg" alt="Steps" /><span class="entry__stat-value">{{post.steps}}</span></div>
+          <div class="entry__stat" title="Steps taken on that date"><img loading="lazy" class="entry__stat-image" src="/assets/ui/a.svg" alt="Active Zone Minutes" /><span class="entry__stat-value">{{post.azm}}</span></div>
+          <div class="entry__stat" title="Steps taken on that date"><img loading="lazy" class="entry__stat-image" src="/assets/ui/d.svg" alt="Distance" /><span class="entry__stat-value">{{post.distance}}</span></div>
+          <div class="entry__stat" title="Steps taken on that date"><img loading="lazy" class="entry__stat-image" src="/assets/ui/f.svg" alt="Floors" /><span class="entry__stat-value">{{post.floors}}</span></div>
         </div>
       </div>
 
@@ -32,37 +32,16 @@ layout: default
       </div>
     </div>
 
-    {%- if post.gallery -%}
+    {% if post.gallery %}
       <div class="gallery entry">
-      {%- for row in post.gallery -%}
-        {%- case row.images-in-row -%}
-          {% when 2 %}
-            <div class="gallery__row gallery__row--two">
-              {%- for image in row.images -%}
-                <img loading="lazy" class="gallery__image" src="{{image.src}}" alt="{{image.alt}}" />
-              {%- endfor -%}
-            </div>
-          {% when 3 %}
-              <div class="gallery__row gallery__row--three">
-                {%- for image in row.images -%}
-                  <img loading="lazy" class="gallery__image" src="{{image.src}}" alt="{{image.alt}}" />
-                {%- endfor -%}
-              </div>
-          {% when 4 %}
-            <div class="gallery__row gallery__row--four">
-              {%- for image in row.images -%}
-                <img loading="lazy" class="gallery__image" src="{{image.src}}" alt="{{image.alt}}" />
-              {%- endfor -%}
-            </div>
-          {% when 5 %}
-            <div class="gallery__row gallery__row--five">
-              {%- for image in row.images -%}
-              <img loading="lazy" class="gallery__image" src="{{image.src}}" alt="{{image.alt}}" />
-              {%- endfor -%}
-            </div>
-        {%- endcase -%}
-      {%- endfor -%}
+        {% for section in post.gallery %}
+          <div class="gallery__row gallery__row--{{section["images"].size}}">
+            {% for image in section["images"] %}
+              <img loading="lazy" class="gallery__image" title="{{image.alt}}" src="{{image.src}}" alt="{{image.alt}}" />
+            {% endfor %}
+          </div>
+        {% endfor %}
       </div>
-    {%- endif -%}
+    {% endif %}
   {%- endfor -%}
 {%- endif -%}

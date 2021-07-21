@@ -10,18 +10,25 @@
 
 html, body
 
-
-$pip: #4a412c
+//Fallout scheme
+$bg: white
+$pip: #4a412c //#4a412c
 $screen: #373929
 $border: #1e1e18
 $textYellow: #9c8753
 $textGreen: #16FF42
 
+//$pip: white
+//$screen: white
+//$border: #1e1e18
+//$textYellow: white
+//$textGreen: black
+
 body
-  background-color: $pip
+  background-color: $bg
   font-family: monofonto
 
-$g: #16FF42
+$g: $textGreen
 $b: 1px solid $border
 $o: 1px solid black
 
@@ -32,48 +39,64 @@ $gr: 1.61803398875
 /*--- Scrollbar ---*/
 /* Width */
 ::-webkit-scrollbar
-  width: 9px
+  width: $s/2
 /* Track */
 ::-webkit-scrollbar-track
-  background: $screen
+  background: lightgray
 /* Handle */
 ::-webkit-scrollbar-thumb
-  background: $border
+  background: darkgray
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover
-  background: $border
+  background: gray
+
+.entry
+  /*--- Entry Scrollbar ---*/
+  /* Width */
+  ::-webkit-scrollbar
+    width: $s/2
+  /* Track */
+  ::-webkit-scrollbar-track
+    background: $screen
+  /* Handle */
+  ::-webkit-scrollbar-thumb
+    background: $pip
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover
+    background: $textYellow
 
 /*--- Entry ---*/
 .entry__date, .entry__stats, .entry__text
-  outline: $b
+  //outline: $b
   color: $g
 
 .entry
   background-color: $border
-  outline: $b
+  //outline: $b
   &:first-of-type
     margin-top: $s
   //background-color: black
   //color: white
   &__meta
     background-color: $border
-    outline: $b
+    //outline: $b
   &__image
   &__attributes
   &__date
-    background-color: #373929
+    background-color: $screen
   &__attribute
   &__stats
-    outline: $b
+    //outline: $b
   &__stat
-    background-color: #373929
+    background-color: $screen
     &-image
     &-value
 
   &__text
-    background-color: #373929
+    background-color: $screen
     outline: $b
   &__title
+    text-transform: uppercase
   &__content
 
 .entry
@@ -82,13 +105,12 @@ $gr: 1.61803398875
   width: 1024px
   margin: auto
   margin-bottom: $s
-  padding: $s/2
+  padding: $s/2 $s/2 $s/2 $s/2
   &__image, .gallery__image
     transition: transform 0.25s ease-out
     &:hover
-      -webkit-transform: scale(2)
-      transform: scale(2)
-      outline: $b
+      -webkit-transform: scale(1.5)
+      transform: scale(1.5)
   &__meta
     display: flex
     flex-wrap: wrap
@@ -97,13 +119,16 @@ $gr: 1.61803398875
   &__image
     width: 300px
     height: 200px
+    z-index: 6
+    object-fit: cover
   &__attributes
     height: 200px
     display: grid
-    grid-template-columns: 61px 61px
+    grid-template-columns: 70px 70px
     grid-template-rows: 78px 61px 61px
-    margin-left: auto
+    margin-left: 9px
     margin-right: 0
+    z-index: 5
   &__date
     grid-column: span 2
     margin-bottom: 18px
@@ -111,14 +136,16 @@ $gr: 1.61803398875
     text-align: center
     cursor: default
   &__attribute
+    z-index: 5
     width: 61px
     height: 61px
     cursor: default
+    margin: auto
     filter: invert(55%) sepia(50%) saturate(341%) hue-rotate(5deg) brightness(88%) contrast(86%)
   &__stats
     margin-top: $s/2
     display: grid
-    grid-template-columns: 215.5px 215.5px
+    grid-template-columns: 224.5px 224.5px
     height: 81px
     align-items: center
     width: 100%
@@ -150,10 +177,11 @@ $gr: 1.61803398875
     display: flex
     flex-direction: column
     justify-content: flex-start
-    height: 308px
     overflow-y: auto
     margin-left: $s/2
-    border: $s/2 solid $border
+    max-height: 290px
+    //border-top: $s/2 solid $border
+    //border-bottom: $s/2 solid $border
   &__title
     width: 100%
     font-size: $s*$gr
@@ -165,30 +193,56 @@ $gr: 1.61803398875
       margin-bottom: 0
 
 .gallery
-  padding: 0
   display: flex
   flex-direction: column
   padding: $s/2
   margin-top: -$s
+  padding-top: 0
   &__row
-      display: flex
-      width: 100%
-      &--two
-        .gallery__image
-          min-width: 50%
-      &--three
-        .gallery__image
-          min-width: 33.333333%
-      &--four
-        .gallery__image
-          min-width: 25%
-      &--five
-          .gallery__image
-            min-width: 20%
+    display: flex
+    width: 100%
+    margin-bottom: $s/3
+    max-width: 100%
+    justify-content: space-between
+    &:last-of-type
+      margin-bottom: 0
+    &--1
+      .gallery__image //0.5 spacing → (100-0.5*n-1)/n
+        max-width: 100%
+        margin: auto
+    &--2
+      .gallery__image //0.5 spacing → (100-0.5*n-1)/n
+        max-width: 49.75%
+    &--3
+      .gallery__image
+        max-width: 33%
+    &--4
+      .gallery__image
+        max-width: 24.625%
+    &--5
+      .gallery__image
+        max-width: 19.6%
+    &--6
+      .gallery__image
+        max-width: 16.25%
+    &--7
+      .gallery__image
+        max-width: 13.8571428571%
+    &--8
+      .gallery__image
+        max-width: 12.0625%
+    &--9
+      .gallery__image
+        max-width: 10.6666666667%
+    &--10
+      .gallery__image
+        max-width: 9.55%
   &__image
+    object-fit: cover
 
 .footer
   text-align: center
+  margin-bottom: $s
 @media (max-width: 960px)
   .entry
     width: 100%
@@ -196,13 +250,14 @@ $gr: 1.61803398875
       min-width: 388px
       align-items: center
     &__attributes
-      grid-template-columns: 51px
+      grid-template-columns: 79px
       grid-template-rows: 86px 51px 51px 51px 51px
     &__attribute
+      margin: auto
       height: 51px
       width: 51px
     &__date
-      font-size: 16px
+      font-size: 18px
       line-height: 34px
       grid-column: span 1
     &__stats
@@ -215,20 +270,40 @@ $gr: 1.61803398875
     &__meta
       min-width: 318px
     &__attributes
-      width: 300px
+      min-width: 300px
+      width: 100%
       height: auto
       margin: 0
       margin-top: $s/2
-      grid-template-columns: 100px 50px 50px 50px 50px
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr
       grid-template-rows: 50px
-
+      margin: auto
+      margin-bottom: $s/2
+    &__stats
+      margin: auto
+      margin-bottom: $s/2
+      width: 100%
+      grid-template-columns: 1fr 1fr
+    &__stat
+      margin-bottom: $s/8
+      margin-left: $s/4
+      &:nth-of-type(n+1)
+        margin-right: $s/4
+        margin-left: 0
+    &__image
+      margin: auto
+      width: 100%
+      height: initial
+      max-height: 260px
+      margin-bottom: $s/2
     &__attribute
       width: 50px
       height: 50px
     &__date
       margin-bottom: auto
-      width: 100
+      width: 100px
       line-height: 50px
+      width: 100%
     &__attribute
 
     &__text
