@@ -106,7 +106,15 @@ $gr: 1.61803398875
   margin: auto
   margin-bottom: $s
   padding: $s/2 $s/2 $s/2 $s/2
-  &__image, .gallery__image
+  .footnote
+    color: $textGreen
+    font-size: 0.5rem
+  .reversefootnote
+    display: none
+  .footnotes
+    ol
+      li
+  &__image, .gallery__image, .gallery__video
     transition: transform 0.25s ease-out
     &:hover
       -webkit-transform: scale(1.5)
@@ -207,38 +215,40 @@ $gr: 1.61803398875
     &:last-of-type
       margin-bottom: 0
     &--1
-      .gallery__image //0.5 spacing → (100-0.5*n-1)/n
+      .gallery__image, .gallery__video //0.5 spacing → (100-0.5*n-1)/n
         max-width: 100%
         margin: auto
     &--2
-      .gallery__image //0.5 spacing → (100-0.5*n-1)/n
+      .gallery__image, .gallery__video //0.5 spacing → (100-0.5*n-1)/n
         max-width: 49.75%
     &--3
-      .gallery__image
+      .gallery__image, .gallery__video
         max-width: 33%
     &--4
-      .gallery__image
+      .gallery__image, .gallery__video
         max-width: 24.625%
     &--5
-      .gallery__image
+      .gallery__image, .gallery__video
         max-width: 19.6%
     &--6
-      .gallery__image
+      .gallery__image, .gallery__video
         max-width: 16.25%
     &--7
-      .gallery__image
+      .gallery__image, .gallery__video
         max-width: 13.8571428571%
     &--8
-      .gallery__image
+      .gallery__image, .gallery__video
         max-width: 12.0625%
     &--9
-      .gallery__image
+      .gallery__image, .gallery__video
         max-width: 10.6666666667%
     &--10
-      .gallery__image
+      .gallery__image, .gallery__video
         max-width: 9.55%
-  &__image
+  &__image, &__video
     object-fit: cover
+    &::-webkit-media-controls-volume-slider, &::-webkit-media-controls-mute-button, &::-webkit-media-controls-timeline
+      display: none
 
 .footer
   text-align: center

@@ -89,10 +89,17 @@ body {
   margin-bottom: 18px;
   padding: 9px 9px 9px 9px;
 }
-.entry__image, .entry .gallery__image {
+.entry .footnote {
+  color: #16FF42;
+  font-size: 0.5rem;
+}
+.entry .reversefootnote {
+  display: none;
+}
+.entry__image, .entry .gallery__image, .entry .gallery__video {
   transition: transform 0.25s ease-out;
 }
-.entry__image:hover, .entry .gallery__image:hover {
+.entry__image:hover, .entry .gallery__image:hover, .entry .gallery__video:hover {
   -webkit-transform: scale(1.5);
   transform: scale(1.5);
 }
@@ -205,39 +212,42 @@ body {
 .gallery__row:last-of-type {
   margin-bottom: 0;
 }
-.gallery__row--1 .gallery__image {
+.gallery__row--1 .gallery__image, .gallery__row--1 .gallery__video {
   max-width: 100%;
   margin: auto;
 }
-.gallery__row--2 .gallery__image {
+.gallery__row--2 .gallery__image, .gallery__row--2 .gallery__video {
   max-width: 49.75%;
 }
-.gallery__row--3 .gallery__image {
+.gallery__row--3 .gallery__image, .gallery__row--3 .gallery__video {
   max-width: 33%;
 }
-.gallery__row--4 .gallery__image {
+.gallery__row--4 .gallery__image, .gallery__row--4 .gallery__video {
   max-width: 24.625%;
 }
-.gallery__row--5 .gallery__image {
+.gallery__row--5 .gallery__image, .gallery__row--5 .gallery__video {
   max-width: 19.6%;
 }
-.gallery__row--6 .gallery__image {
+.gallery__row--6 .gallery__image, .gallery__row--6 .gallery__video {
   max-width: 16.25%;
 }
-.gallery__row--7 .gallery__image {
+.gallery__row--7 .gallery__image, .gallery__row--7 .gallery__video {
   max-width: 13.8571428571%;
 }
-.gallery__row--8 .gallery__image {
+.gallery__row--8 .gallery__image, .gallery__row--8 .gallery__video {
   max-width: 12.0625%;
 }
-.gallery__row--9 .gallery__image {
+.gallery__row--9 .gallery__image, .gallery__row--9 .gallery__video {
   max-width: 10.6666666667%;
 }
-.gallery__row--10 .gallery__image {
+.gallery__row--10 .gallery__image, .gallery__row--10 .gallery__video {
   max-width: 9.55%;
 }
-.gallery__image {
+.gallery__image, .gallery__video {
   object-fit: cover;
+}
+.gallery__image::-webkit-media-controls-volume-slider, .gallery__image::-webkit-media-controls-mute-button, .gallery__image::-webkit-media-controls-timeline, .gallery__video::-webkit-media-controls-volume-slider, .gallery__video::-webkit-media-controls-mute-button, .gallery__video::-webkit-media-controls-timeline {
+  display: none;
 }
 
 .footer {
