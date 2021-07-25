@@ -3,6 +3,14 @@ layout: default
 
 ---
 
+<header class="header" id="top-anchor">
+  Martin Toms: Travel Portfolio
+</header>
+
+<a class="back-to-top" href="#top-anchor"></a>
+
+<section class="section">
+  <h1 class="heading">Table of Contents</h1>
 {%- if site.posts.size > 0 -%}
   <div class="entries">
   {%- for post in site.posts -%}
@@ -15,6 +23,9 @@ layout: default
   {%- endfor -%}
   </div>
 {%- endif -%}
+</section>
+<section class="section">
+  <h1 class="heading">Entries</h1>
 {%- if site.posts.size > 0 -%}
   {%- for post in site.posts -%}
     {% capture day_posted %}{{ post.date | date: "%Y-%m-%d" }}{% endcapture %}
@@ -66,3 +77,4 @@ layout: default
     {% endif %}
   {%- endfor -%}
 {%- endif -%}
+</section>

@@ -333,10 +333,33 @@ $gr: 1.61803398875
     &::-webkit-media-controls-volume-slider, &::-webkit-media-controls-mute-button, &::-webkit-media-controls-timeline
       display: none
 
-.footer
+.footer, .header
   text-align: center
   margin-bottom: $s
+  margin-top: $s
   text-transform: uppercase
+
+.section
+  margin: auto
+  .heading
+    width: 200px
+    font-size: 1rem
+    text-align: center
+    margin: 3*$s auto $s auto
+    text-transform: uppercase
+    font-weight: normal
+
+.back-to-top
+  position: fixed
+  border: black solid $s/4
+  border-radius: 5px
+  bottom: $s
+  right: $s
+  width: $s*3
+  height: $s*3
+  background-image: url("/assets/ui/up.svg")
+  background-size: 100%
+
 @media (max-width: 960px)
   .entry
     width: 100%
