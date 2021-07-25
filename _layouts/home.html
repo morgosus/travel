@@ -4,9 +4,21 @@ layout: default
 ---
 
 {%- if site.posts.size > 0 -%}
+  <div class="entries">
   {%- for post in site.posts -%}
     {% capture day_posted %}{{ post.date | date: "%Y-%m-%d" }}{% endcapture %}
-    <div class="entry">
+
+      <figure  class="entries__item">
+        <img class="entries__image" src="{{post.view.src}}" alt="{{post.view.alt}}" ><a href="#{{post.title}}">
+        <figcaption class="entries__caption"><span class="entries__left">{{post.title}}</span><span class="entries__right">{{day_posted}}</span></figcaption>
+      </a></figure>
+  {%- endfor -%}
+  </div>
+{%- endif -%}
+{%- if site.posts.size > 0 -%}
+  {%- for post in site.posts -%}
+    {% capture day_posted %}{{ post.date | date: "%Y-%m-%d" }}{% endcapture %}
+    <div id="{{post.title}}" class="entry">
       <div class="entry__meta">
         <img loading="lazy" class="entry__image" src="{{post.view.src}}" alt="{{post.view.alt}}" title="{{post.view.alt}}" />
         <div class="entry__attributes">
@@ -18,9 +30,9 @@ layout: default
         </div>
         <div class="entry__stats">
           <div class="entry__stat" title="Steps taken on that date"><img loading="lazy" class="entry__stat-image" src="/assets/ui/s.svg" alt="Steps" /><span class="entry__stat-value">{{post.steps}}</span></div>
-          <div class="entry__stat" title="Steps taken on that date"><img loading="lazy" class="entry__stat-image" src="/assets/ui/a.svg" alt="Active Zone Minutes" /><span class="entry__stat-value">{{post.azm}}</span></div>
-          <div class="entry__stat" title="Steps taken on that date"><img loading="lazy" class="entry__stat-image" src="/assets/ui/d.svg" alt="Distance" /><span class="entry__stat-value">{{post.distance}}</span></div>
-          <div class="entry__stat" title="Steps taken on that date"><img loading="lazy" class="entry__stat-image" src="/assets/ui/f.svg" alt="Floors" /><span class="entry__stat-value">{{post.floors}}</span></div>
+          <div class="entry__stat" title="Active zone minutes"><img loading="lazy" class="entry__stat-image" src="/assets/ui/a.svg" alt="Active Zone Minutes" /><span class="entry__stat-value">{{post.azm}}</span></div>
+          <div class="entry__stat" title="Distance walked"><img loading="lazy" class="entry__stat-image" src="/assets/ui/d.svg" alt="Distance" /><span class="entry__stat-value">{{post.distance}}</span></div>
+          <div class="entry__stat" title="Floors climbed"><img loading="lazy" class="entry__stat-image" src="/assets/ui/f.svg" alt="Floors" /><span class="entry__stat-value">{{post.floors}}</span></div>
         </div>
       </div>
 
