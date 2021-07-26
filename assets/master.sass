@@ -6,9 +6,6 @@
   box-sizing: border-box
   font-size: 18px
   line-height: 30px
-  //font-family: monofonto
-
-html, body
 
 //Fallout scheme
 $bg: white
@@ -26,7 +23,7 @@ $textGreen: #16FF42
 
 body
   background-color: $bg
-  font-family: monofonto
+  font-family: monofonto, monospace
   overflow-x: hidden
 
 $g: $textGreen
@@ -271,8 +268,6 @@ $gr: 1.61803398875
     overflow-y: auto
     margin-left: $s/2
     height: 290px
-    //border-top: $s/2 solid $border
-    //border-bottom: $s/2 solid $border
   &__title
     width: 100%
     font-size: $s*$gr
@@ -359,8 +354,15 @@ $gr: 1.61803398875
   height: $s*3
   background-image: url("/assets/ui/up.svg")
   background-size: 100%
+  z-index: 10
 
 @media (max-width: 960px)
+  .entries
+    width: 100%
+    padding: 0 $s/2
+    overflow: hidden
+    &__left, &__right
+      font-size: 6px
   .entry
     width: 100%
     &__meta
@@ -385,7 +387,7 @@ $gr: 1.61803398875
   .entry
     flex-wrap: wrap
     &__meta
-      min-width: 318px
+      min-width: 100% //318px
     &__attributes
       min-width: 300px
       width: 100%

@@ -10,7 +10,7 @@
 
 body {
   background-color: white;
-  font-family: monofonto;
+  font-family: monofonto, monospace;
   overflow-x: hidden;
 }
 
@@ -386,9 +386,19 @@ body {
   height: 54px;
   background-image: url("/assets/ui/up.svg");
   background-size: 100%;
+  z-index: 10;
 }
 
 @media (max-width: 960px) {
+  .entries {
+    width: 100%;
+    padding: 0 9px;
+    overflow: hidden;
+  }
+  .entries__left, .entries__right {
+    font-size: 6px;
+  }
+
   .entry {
     width: 100%;
   }
@@ -420,7 +430,7 @@ body {
     flex-wrap: wrap;
   }
   .entry__meta {
-    min-width: 318px;
+    min-width: 100%;
   }
   .entry__attributes {
     min-width: 300px;
