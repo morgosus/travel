@@ -20,6 +20,7 @@
       &__left, &__right
         position: absolute
         padding: $s/2
+        line-height: $font-size
       &__left
         top: $s/2+$s/4
         left: $s/2
@@ -47,3 +48,8 @@
       box-shadow: -5px -5px 10px -10px black, inset 5px 5px 10px -10px black
     &__right
       box-shadow: 5px 5px 10px -10px black, inset -5px -5px 10px -10px black
+
+@media (max-width: 600px)
+  .text__left, .text__right
+    font-size: 10px
+    line-height: 10px

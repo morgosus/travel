@@ -82,6 +82,7 @@ body {
 .toc__item .text__left, .toc__item .text__right {
   position: absolute;
   padding: 8.0901699438px;
+  line-height: 18px;
 }
 .toc__item .text__left {
   top: 12.1352549156px;
@@ -119,6 +120,12 @@ body {
   box-shadow: 5px 5px 10px -10px black, inset -5px -5px 10px -10px black;
 }
 
+@media (max-width: 600px) {
+  .text__left, .text__right {
+    font-size: 10px;
+    line-height: 10px;
+  }
+}
 /*=== Entry ============================*/
 /*--- Display --------------------------*/
 .entry {
