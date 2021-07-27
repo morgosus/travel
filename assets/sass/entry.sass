@@ -1,0 +1,120 @@
+/*--- Display --------------------------*/
+.entry
+  display: flex
+  margin-bottom: 2*$s
+  &__meta
+    display: flex
+    width: 38.197%
+    flex-wrap: wrap
+    margin-right: 0.38197%
+    cursor: default
+    .image
+      object-fit: cover
+      width: 61.803%
+    .attributes
+      width: 38.197%
+      display: flex
+      flex-direction: column
+      &__wrapper--date
+        flex-grow: 1
+        display: flex
+        margin-left: $s/2
+        .date
+          align-self: center
+          display: block
+          width: 100%
+          flex-grow: 1
+          text-align: center
+      &__wrapper--attributes
+        height: 61.803%
+        display: grid
+        grid-template-columns: 1fr 1fr
+        grid-template-rows: 1fr 1fr
+        justify-items: center
+        align-items: center
+        margin-left: $s/2
+        border-top: none
+        .attribute
+          width: $s*2
+          height: $s*2
+    .stats
+      display: grid
+      grid-template-columns: 0.38197fr 0.61803fr
+      grid-template-rows: 1fr 1fr
+      justify-items: center
+      align-items: center
+      width: 100%
+      margin-top: $s/2
+      column-gap: $s/2
+      .stat
+        @include stretch
+        display: flex
+        align-items: center
+        &__image
+          object-fit: contain
+          background-position: left
+          max-height: $s*2
+          flex-grow: 1
+        &__value
+          text-align: right
+          width: 61.803%
+          padding-right: $s
+
+  &__text
+    width: 61.803%
+    overflow-y: auto
+    max-height: 300px
+    padding: $s/2
+    margin-left: 0.61803%
+    .heading
+      margin: 0
+      font-size: $font-size
+      line-height: $font-size
+      text-align: left
+      font-weight: bold
+      text-transform: uppercase
+      margin-bottom: $s/2
+    .content
+      text-align: justify
+      p:not(p:last-of-type)
+        margin-bottom: $s/2
+
+/*--- Coloring -------------------------*/
+.entry
+  &__meta
+    .image
+      outline: $s/4 solid $background-color
+    .attributes
+      &__wrapper--date
+        border: $border
+    .stats
+      .stat
+        &:nth-of-type(2), &:first-of-type
+          border-top: $border
+        &:nth-of-type(3), &:last-of-type
+          border-bottom: $border
+        &:nth-of-type(3), &:first-of-type
+          border-left: $border
+          border-right: $border
+        &:nth-of-type(2), &:last-of-type
+          border-left: $border
+          border-right: $border
+  &__text
+    outline: $border
+
+/*--- Scrolling ------------------------*/
+.entry
+  /* Width */
+  ::-webkit-scrollbar
+    outline: $border
+    width: $s/2
+  /* Track */
+  ::-webkit-scrollbar-track
+    background: white
+  /* Handle */
+  ::-webkit-scrollbar-thumb
+    background: white
+    outline: $border
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover
+    background: $border-color

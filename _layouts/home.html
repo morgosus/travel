@@ -1,80 +1,88 @@
 ---
 layout: default
-
 ---
 
-<header class="header" id="top-anchor">
+<header class="header">
   Martin Toms: Travel Portfolio
 </header>
 
-<a class="back-to-top" href="#top-anchor"></a>
+{% if false %}
+<a class="back-to-top" href="#top" title="Back to Top"></a>
+{% endif %}
 
-<section class="section">
-  <h1 class="heading">Table of Contents</h1>
-{%- if site.posts.size > 0 -%}
-  <div class="entries">
-  {%- for post in site.posts -%}
-    {% capture day_posted %}{{ post.date | date: "%Y-%m-%d" }}{% endcapture %}
+<main class="main">
+  <section class="section">
+    <h1 class="heading">Table of Contents</h1>
+  {%- if site.posts.size > 0 -%}
+    <div class="toc">
+    {%- for post in site.posts -%}
+      {% capture day_posted %}{{ post.date | date: "%Y-%m-%d" }}{% endcapture %}
 
-      <figure  class="entries__item">
-        <img class="entries__image" src="{{post.view.src}}" alt="{{post.view.alt}}" ><a href="#{{post.title}}">
-        <figcaption class="entries__caption"><span class="entries__left">{{post.title}}</span><span class="entries__right">{{day_posted}}</span></figcaption>
-      </a></figure>
-  {%- endfor -%}
-  </div>
-{%- endif -%}
-</section>
-<section class="section">
-  <h1 class="heading">Entries</h1>
-{%- if site.posts.size > 0 -%}
-  {%- for post in site.posts -%}
-    {% capture day_posted %}{{ post.date | date: "%Y-%m-%d" }}{% endcapture %}
-    <div id="{{post.title}}" class="entry">
-      <div class="entry__meta">
-        <img loading="lazy" class="entry__image" src="{{post.view.src}}" alt="{{post.view.alt}}" title="{{post.view.alt}}" />
-        <div class="entry__attributes">
-          <time class="entry__date" title="timestamp" datetime="{{day_posted}}">{{day_posted}}</time>
-          <img loading="lazy" class="entry__attribute" title="Mood" src="/assets/ui/{{post.mood}}.svg" alt="{{post.mood}}" />
-          <img loading="lazy" class="entry__attribute" title="Weather" src="/assets/ui/{{post.weather}}.svg" alt="{{post.weather}}" />
-          <img loading="lazy" class="entry__attribute" title="Activity" src="/assets/ui/{{post.activity}}.svg" alt="{{post.activity}}" />
-          <img loading="lazy" class="entry__attribute" title="Type of Location" src="/assets/ui/{{post.type}}.svg" alt="{{post.type}}" />
-        </div>
-        <div class="entry__stats">
-          <div class="entry__stat" title="Steps taken on that date"><img loading="lazy" class="entry__stat-image" src="/assets/ui/s.svg" alt="Steps" /><span class="entry__stat-value">{{post.steps}}</span></div>
-          <div class="entry__stat" title="Active zone minutes"><img loading="lazy" class="entry__stat-image" src="/assets/ui/a.svg" alt="Active Zone Minutes" /><span class="entry__stat-value">{{post.azm}}</span></div>
-          <div class="entry__stat" title="Distance walked"><img loading="lazy" class="entry__stat-image" src="/assets/ui/d.svg" alt="Distance" /><span class="entry__stat-value">{{post.distance}}</span></div>
-          <div class="entry__stat" title="Floors climbed"><img loading="lazy" class="entry__stat-image" src="/assets/ui/f.svg" alt="Floors" /><span class="entry__stat-value">{{post.floors}}</span></div>
-        </div>
-      </div>
-
-      <div class="entry__text">
-        <div class="entry__title">{{post.title}}</div>
-        <div class="entry__content">
-          {{post.content}}
-        </div>
-      </div>
+        <figure  class="toc__item">
+          <img class="image" src="{{post.view.src}}" alt="{{post.view.alt}}" ><a href="#{{post.title}}">
+          <figcaption class="text"><span class="text__left">{{post.title}}</span><span class="text__right">{{day_posted}}</span></figcaption>
+        </a></figure>
+    {%- endfor -%}
     </div>
+  {%- endif -%}
+  </section>
 
-    {% if post.gallery %}
-      <div class="gallery entry">
-        {% for section in post.gallery %}
-          <div class="gallery__row gallery__row--{{section["images"].size}}">
-            {% for media in section["images"] %}
-              {% capture extension %}{{media.src | slice: -3, 3}}{% endcapture %}
-              {% case extension %}
-                {% when 'jpg' %}
-                  <img loading="lazy" class="gallery__image" title="{{media.alt}}" src="{{media.src}}" alt="{{media.alt}}" />
-                {% when 'mp4' %}
-                  <video preload="metadata" class="gallery__video" disablepictureinpicture="true" muted controls controlslist="nodownload noremoteplayback">
-                    <source src="{{media.src}}" type="video/mp4">
-                  </video>
-                {% else %}
-              {% endcase %}
-            {% endfor %}
+  <section class="section__heading">
+    <h1 class="heading">Entries</h1>
+  {%- if site.posts.size > 0 -%}
+    {%- for post in site.posts -%}
+      {% capture day_posted %}{{ post.date | date: "%Y-%m-%d" }}{% endcapture %}
+      <div id="{{post.title}}" class="entry">
+        <div class="entry__meta">
+          <img loading="lazy" class="image" src="{{post.view.src}}" alt="{{post.view.alt}}" title="{{post.view.alt}}" />
+          <div class="attributes">
+            <div class="attributes__wrapper--date">
+              <time class="date" title="timestamp" datetime="{{day_posted}}">{{day_posted}}</time>
+            </div>
+            <div class="attributes__wrapper--attributes">
+              <img loading="lazy" class="attribute" title="Mood" src="/assets/ui/{{post.mood}}.svg" alt="{{post.mood}}" />
+              <img loading="lazy" class="attribute" title="Weather" src="/assets/ui/{{post.weather}}.svg" alt="{{post.weather}}" />
+              <img loading="lazy" class="attribute" title="Activity" src="/assets/ui/{{post.activity}}.svg" alt="{{post.activity}}" />
+              <img loading="lazy" class="attribute" title="Type of Location" src="/assets/ui/{{post.type}}.svg" alt="{{post.type}}" />
+            </div>
           </div>
-        {% endfor %}
+          <div class="stats">
+            <div class="stat" title="Active zone minutes"><img loading="lazy" class="stat__image" src="/assets/ui/a.svg" alt="Active Zone Minutes" /><span class="stat__value">{{post.azm}}</span></div>
+            <div class="stat" title="Distance walked"><img loading="lazy" class="stat__image" src="/assets/ui/d.svg" alt="Distance" /><span class="stat__value">{{post.distance}}</span></div>
+            <div class="stat" title="Floors climbed"><img loading="lazy" class="stat__image" src="/assets/ui/f.svg" alt="Floors" /><span class="stat__value">{{post.floors}}</span></div>
+            <div class="stat" title="Steps taken on that date"><img loading="lazy" class="stat__image" src="/assets/ui/s.svg" alt="Steps" /><span class="stat__value">{{post.steps}}</span></div>
+          </div>
+        </div>
+
+        <div class="entry__text">
+          <div class="heading">{{post.title}}</div>
+          <div class="content">
+            {{post.content}}
+          </div>
+        </div>
       </div>
-    {% endif %}
-  {%- endfor -%}
-{%- endif -%}
-</section>
+
+      {% if post.gallery %}
+        <div class="gallery">
+          {% for section in post.gallery %}
+            <div class="gallery__row gallery__row--{{section["images"].size}}">
+              {% for media in section["images"] %}
+                {% capture extension %}{{media.src | slice: -3, 3}}{% endcapture %}
+                {% case extension %}
+                  {% when 'jpg' %}
+                    <img loading="lazy" class="image" title="{{media.alt}}" src="{{media.src}}" alt="{{media.alt}}" />
+                  {% when 'mp4' %}
+                    <video preload="metadata" class="video" disablepictureinpicture="true" muted controls controlslist="nodownload noremoteplayback">
+                      <source src="{{media.src}}" type="video/mp4">
+                    </video>
+                  {% else %}
+                {% endcase %}
+              {% endfor %}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {%- endfor -%}
+  {%- endif -%}
+  </section>
+</main>

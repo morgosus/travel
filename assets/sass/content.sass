@@ -1,0 +1,30 @@
+blockquote
+  margin: $s auto
+  border-left: $s/4 solid $border-color
+  padding-left: $s/2
+
+.footnote
+  color: black
+  text-decoration: none
+  font-size: 0.5rem
+.reversefootnote
+  display: none
+.footnotes ol
+  line-height: $font-size
+  li
+    font-size: $font-size/2
+    list-style-position: inside
+  p
+    font-size: $font-size/2
+    display: inline
+    word-break: break-all
+
+
+ul
+  padding: 0
+  li
+    list-style-position: inside
+    & > ul
+      padding-left: $s
+      & > ul
+        padding-left: $s*2

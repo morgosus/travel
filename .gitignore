@@ -4,3 +4,15 @@ _site
 .jekyll-metadata
 vendor
 .idea
+/assets/sass/back-to-top.css
+/assets/sass/back-to-top.css.map
+/assets/sass/content.css
+/assets/sass/content.css.map
+/assets/sass/entry.css
+/assets/sass/entry.css.map
+/assets/sass/gallery.css
+/assets/sass/gallery.css.map
+/assets/sass/scrollbar.css
+/assets/sass/scrollbar.css.map
+/assets/sass/table-of-contents.css
+/assets/sass/table-of-contents.css.map
