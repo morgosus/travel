@@ -11,7 +11,7 @@ view:
 mood: smile
 weather: clear-sky
 activity: walking
-type: village
+type: city
 
 steps: 19628
 azm:  147
