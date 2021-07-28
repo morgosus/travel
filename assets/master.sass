@@ -1,6 +1,8 @@
 @font-face
-  font-family: monofonto
-  src: url(monofonto.ttf)
+  font-family: 'monofonto'
+  src: url('/assets/font/monofonto-webfont.woff2') format('woff2'), url('/assets/font/monofonto-webfont.woff') format('woff')
+  font-weight: normal
+  font-style: normal
 
 
 /*=== Auxiliary =======================*/
@@ -36,7 +38,7 @@ $background-color: white
 body
   font-size: $font-size
   line-height: 32px
-  font-family: monofonto
+  font-family: 'monofonto', monospace
   max-width: 100%
   overflow-x: hidden
   background-color: $background-color
