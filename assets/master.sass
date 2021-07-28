@@ -9,7 +9,6 @@ $golden-ratio: 1.61803398875
 $f: 100%
 
 $s: $golden-ratio*10px
-//heading font = content*$gr
 
 $font-size: 18px
 $font-size-heading:  $font-size*$golden-ratio
@@ -22,8 +21,6 @@ $border-color: #EEEEEE
 $border: 1px solid $border-color
 $box-shadow: 0px 0px 5px $border-color
 $background-color: white
-@mixin border
-
 
 @mixin stretch
   width: $f
@@ -50,12 +47,11 @@ body
 
 /*--- Scrollbar -----------------------*/
 
-@import "sass/back-to-top"
 
 
 /*=== Back to Top =====================*/
 
-#back-to-top
+@import "sass/back-to-top"
 
 /*=== Page Layout =====================*/
 .heading
@@ -68,8 +64,6 @@ body
   text-align: center
   margin: $s auto
   text-transform: uppercase
-
-.image
 
 /*=== Table of Contents ================*/
 
