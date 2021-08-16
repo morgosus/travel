@@ -3,16 +3,34 @@ layout: default
 ---
 
 <header class="header">
-  Martin Toms: Travel Portfolio
+  <h1 class="header__heading">Martin Toms: Exploring the Czech Republic</h1>
 </header>
+<div class="description">
+  <figure class="figure">
+    <img class="image" src="https://filedn.eu/lwI1LDSpBGNhFdgdym0FqY7/i/t/2021-06-28/orlik-landscape.jpg" alt="Landscape around Orlík.">
+    <figcaption class="text"><span class="text__left">Landscape around Orlík</span><span class="text__right">2021-06-28</span></figcaption>
+  </figure>
 
+  <p>Hey there! It’s Martin, thanks for visiting the site. I appreciate you being here.</p>
+  <p>Just to introduce myself a little bit, I’m a front and back-end developer who works on UI designs
+    as well. I’m a pretty casual person who’s quite particular with details. My other interests include
+    gaming and programming, which is why I also write about it on my other website (feel free to
+    check out some articles at: https://www.toms.click).</p>
+  <p class="short">Anyway, welcome to my online portfolio that also doubles as a travel diary!</p>
+  <p>This is where I upload stunning photographs of beautiful places you'll see in the Czech
+    Republic, like Lobkovice, Modrava, Kvilda, and Neratovice, among many others. You should
+    really check it out. I’ve included descriptions and inserted a few experiences with the photos as
+    well; just to make it more personal. I'd like you to feel like you’re exploring the places yourself as
+    you view the galleries.</p>
+  <p class="short">Thanks again for dropping by, enjoy!</p>
+  <p class="short">Martin Toms</p>
+</div>
 {% if false %}
 <a class="back-to-top" href="#top" title="Back to Top"></a>
 {% endif %}
-
 <main class="main">
   <section class="section">
-    <h1 class="heading">Table of Contents</h1>
+    <h2 class="heading">Table of Contents</h2>
   {%- if site.posts.size > 0 -%}
     <div class="toc">
     {%- for post in site.posts -%}
@@ -28,16 +46,16 @@ layout: default
   </section>
 
   <section class="section__heading">
-    <h1 class="heading">Entries</h1>
+    <h2 class="heading">Entries</h2>
   {%- if site.posts.size > 0 -%}
     {%- for post in site.posts -%}
       {% capture day_posted %}{{ post.date | date: "%Y-%m-%d" }}{% endcapture %}
-      <div id="{{post.title}}" class="entry">
+      <div id="{{post.title}}" class="entry" itemscope itemtype="http://schema.org/Article">
         <div class="entry__meta">
-          <img loading="lazy" class="image" src="{{post.view.src}}" alt="{{post.view.alt}}" title="{{post.view.alt}}" />
+          <img itemprop="thumbnail" loading="lazy" class="image" src="{{post.view.src}}" alt="{{post.view.alt}}" title="{{post.view.alt}}" />
           <div class="attributes">
             <div class="attributes__wrapper--date">
-              <time class="date" title="timestamp" datetime="{{day_posted}}">{{day_posted}}</time>
+              <time class="date" title="timestamp" datetime="{{day_posted}}" itemprop="datePublished">{{day_posted}}</time>
             </div>
             <div class="attributes__wrapper--attributes">
               <img loading="lazy" class="attribute" title="Mood" src="/assets/ui/{{post.mood}}.svg" alt="{{post.mood}}" />
@@ -54,27 +72,40 @@ layout: default
           </div>
         </div>
 
+        {%- capture wordCount -%}{{- post.content | number_of_words -}}{%- endcapture -%}
+
+        {%- capture timeRequired -%}{{- wordCount | add: 200 | divided_by: 200 | round | plus: 1 -}}{%- endcapture -%}
+
+        <span aria-hidden="true" itemprop="wordCount">{{- wordCount -}}</span>&nbsp;•&nbsp;<span itemprop="timeRequired">{{- timeRequired -}}-min</span>
+
         <div class="entry__text">
-          <div class="heading">{{post.title}}</div>
-          <div class="content">
+          <div class="heading" itemprop="headline name">{{post.title}}</div>
+          <div class="content" itemprop="articleBody">
             {{post.content}}
           </div>
         </div>
       </div>
 
       {% if post.gallery %}
-        <div class="gallery">
+        <div itemscope itemtype="https://schema.org/MediaGallery" class="gallery">
+          <span aria-hidden="true" itemprop="about contentLocation">{{post.title}}</span><span aria-hidden="true" itemprop="dateCreated">{{post.date}}</span><span aria-hidden="true" itemprop="accessModeSufficient">visual</span><span itemprop="genre" aria-hidden="true">travel</span>
           {% for section in post.gallery %}
             <div class="gallery__row gallery__row--{{section["images"].size}}">
               {% for media in section["images"] %}
                 {% capture extension %}{{media.src | slice: -3, 3}}{% endcapture %}
                 {% case extension %}
                   {% when 'jpg' %}
-                    <img loading="lazy" class="image" title="{{media.alt}}" src="{{media.src}}" alt="{{media.alt}}" />
+                    <figure itemscope itemtype="http://schema.org/ImageObject" itemprop="associatedMedia" class="image figure">
+                      <img itemprop="thumbnail" class="figure__item" loading="lazy" title="{{media.alt}}" src="{{media.src}}" alt="{{media.alt}}" />
+                      <figcaption class="figure__caption"><span itemprop="caption name abstract">{{media.alt}}</span><span aria-hidden="true" itemprop="dateCreated">{{post.date}}</span><span aria-hidden="true" itemprop="copyrightNotice">Copyright © <span itemprop="copyrightYear">2021</span> <span aria-hidden="true" itemprop="author copyrightHolder" itemtype="https://schema.org/Person"><span itemprop="name">Martin Toms</span></span>, All Rights Reserved</span><span aria-hidden="true" itemprop="accessMode">colorDependent</span><span aria-hidden="true" itemprop="about contentLocation">{{post.title}}</span><span aria-hidden="true" itemprop="accessModeSufficient">visual</span><span itemprop="genre">travel</span></figcaption>
+                    </figure>
                   {% when 'mp4' %}
-                    <video preload="metadata" class="video" disablepictureinpicture="true" muted controls controlslist="nodownload noremoteplayback">
-                      <source src="{{media.src}}" type="video/mp4">
-                    </video>
+                    <figure itemscope itemtype="http://schema.org/VideoObject" itemprop="associatedMedia" class="image figure">
+                      <video preload="metadata" class="video figure__item" disablepictureinpicture="true" muted controls controlslist="nodownload noremoteplayback">
+                        <source itemprop="embedUrl" src="{{media.src}}" type="video/mp4">
+                      </video>
+                      <figcaption class="figure__caption"><span itemprop="caption name abstract">{{media.alt}}</span><span aria-hidden="true" itemprop="dateCreated">{{post.date}}</span><span aria-hidden="true" itemprop="copyrightNotice">Copyright © <span itemprop="copyrightYear">2021</span> <span aria-hidden="true" itemprop="author copyrightHolder" itemtype="https://schema.org/Person"><span itemprop="name">Martin Toms</span></span>, All Rights Reserved</span><span aria-hidden="true" itemprop="accessMode">colorDependent</span><span aria-hidden="true" itemprop="accessMode">auditory</span><span aria-hidden="true" itemprop="about contentLocation recordedAt">{{post.title}}</span><span aria-hidden="true" itemprop="accessModeSufficient">visual</span><span itemprop="genre">travel</span></figcaption>
+                    </figure>
                   {% else %}
                 {% endcase %}
               {% endfor %}
