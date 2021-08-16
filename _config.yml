@@ -49,3 +49,11 @@ github_username:  morgosus
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+sass:
+  load_paths:
+    - _sass
+    - node_modules
+    - assets/css
+    - assets/vendor
+  style: compressed
