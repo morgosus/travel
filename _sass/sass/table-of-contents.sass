@@ -9,7 +9,7 @@
     max-width: ($tf)/3
     position: relative
     margin-bottom: $tg
-    padding: $s/4
+    padding: $s/8
     .image
       @include stretch
       object-fit: cover
@@ -19,16 +19,16 @@
       bottom: 0
       &__left, &__right
         position: absolute
-        padding: $s/2
+        padding: $s*0.75
         line-height: $font-size
       &__left
-        top: $s/2+$s/4
-        left: $s/2
+        top: $s*0.75+$s/4
+        left: $s*0.75
         border-left: $gb
         border-top: $gb
       &__right
-        bottom: $s/2+$s/4
-        right: $s/2+$s/2
+        bottom: $s*0.75+$s/4
+        right: $s*0.75+$s/2
         border-bottom:  $gb
         border-right:  $gb
 

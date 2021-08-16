@@ -1,0 +1,123 @@
+/*--- Display --------------------------*/
+.gallery
+  margin-bottom: 2*$s
+  &__row
+    display: flex
+    justify-content: space-between
+    margin-bottom: 0.5%
+    @for $i from 1 through 10
+      &--#{$i} /*(100-0.5*n-1)/n where 0.5 = spacing%*/
+        .image, .video
+          object-fit: cover
+          $w: ((100% - 0.5% * ($i - 1))/$i)
+          max-width: $w
+
+/*--- Coloring -------------------------*/
+.gallery
+  .image, .video
+    //box-shadow: 0px 0px 5px black
+    outline: $s/4 solid $background-color
+
+/*--- Video Controls -------------------*/
+.gallery .video
+  &::-webkit-media-controls-volume-slider, &::-webkit-media-controls-volume-control-container, &::-webkit-media-controls-mute-button, &::-webkit-media-controls-timeline
+    display: none
+  &::-webkit-media-controls-current-time-display, &::-webkit-media-controls-time-remaining-display
+    font-family: monofonto
+    opacity: 0.5
+    color: $g
+  &::-webkit-media-controls-panel
+    background: none
+  &::-webkit-media-controls-play-button, &::-webkit-media-controls-fullscreen-button
+    transition: all 0.25s ease-out
+    filter: invert(74%) sepia(43%) saturate(2249%) hue-rotate(74deg) brightness(104%) contrast(106%)
+    &:hover
+      filter: none
+  &::-internal-media-controls-button-hover-background
+    display: none
+/*--- Hover Effects --------------------*/
+.gallery, .entry__meta
+  .image, .video
+    transition: transform 0.15s ease-out
+    &:hover
+      -webkit-transform: scale(1.5)
+      transform: scale(1.5)
+.figure
+  position: relative
+  &__item
+    width: 100%
+    min-width: 100%
+    height: 100%
+    object-fit: cover
+  &__caption
+    position: absolute
+    top: 0
+    left: 0
+    cursor: default
+    color: white
+    line-height: $font-size*0.5
+    font-size: $font-size*0.5
+    border-top: white 1px solid
+    border-left: white 1px solid
+    margin-top: $s/4
+    margin-left: $s/4
+    margin-right: $s/4
+    padding-top: $s/4
+    padding-left: $s/4
+    box-shadow: -5px -5px 10px -10px black, inset 5px 5px 10px -10px black
+    text-shadow: 0px 0px 5px black
+
+.header h1
+  font-size: $font-size
+  line-height: 32px
+  font-weight: normal
+.description
+  max-width: 480px
+  text-align: justify
+  hyphens: auto
+  margin: $s auto
+  .heading
+    margin-bottom: 0
+    font-size: $font-size
+    line-height: $font-size
+    &.intro
+      margin-top: $s
+  p
+    margin-bottom: $s
+    &.short
+      text-align: center
+  .figure
+    position: relative
+    .image
+      width: 100%
+      height: 100%
+      object-fit: cover
+      margin: 0
+      padding: $s/8
+      box-shadow: 0px 0px 5px black
+    .text
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      text-shadow: 0px 0px 5px black
+      &__left, &__right
+        position: absolute
+        transition: 0.15s all ease-out
+        color: white
+        padding: $s/2
+        line-height: $font-size
+        cursor: default
+      &__left
+        box-shadow: -5px -5px 10px -10px black, inset 5px 5px 10px -10px black
+        top: $s
+        left: $s
+        border-left: 1px solid white
+        border-top: 1px solid white
+      &__right
+        box-shadow: 5px 5px 10px -10px black, inset -5px -5px 10px -10px black
+        bottom: $s*1.75
+        right: $s
+        border-bottom: 1px solid white
+        border-right: 1px solid white
