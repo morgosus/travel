@@ -78,7 +78,7 @@ layout: default
 
         {%- capture timeRequired -%}{{- wordCount | add: 200 | divided_by: 200 | round | plus: 1 -}}{%- endcapture -%}
 
-        <span aria-hidden="true" itemprop="wordCount">{{- wordCount -}}</span>&nbsp;•&nbsp;<span itemprop="timeRequired">{{- timeRequired -}}-min</span>
+        <span aria-hidden="true" itemprop="wordCount">{{- wordCount -}}</span>&nbsp;•&nbsp;<span itemprop="timeRequired" aria-hidden="true" hidden>{{- timeRequired -}}-min</span>
 
         <div class="entry__text">
           <div class="heading" itemprop="headline name">{{post.title}}</div>
